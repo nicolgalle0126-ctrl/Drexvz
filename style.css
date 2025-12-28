@@ -1,0 +1,133 @@
+/* Fondo */
+body {
+    margin: 0;
+    background: radial-gradient(circle, #330016, #000);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Courier New", cursive;
+}
+
+/* Nombre */
+.name {
+    position: absolute;
+    top: 20px;
+    font-size: 50px;
+    color: #ff99cc;
+    text-shadow: 0 0 20px #ff1a75;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff4d94; }
+    to { text-shadow: 0 0 30px #ff80b3; }
+}
+
+/* Corazón */
+.heart {
+    width: 180px;
+    height: 180px;
+    background: #ff0066;
+    position: absolute;
+    transform: rotate(-45deg);
+    animation: beat 1.2s infinite;
+    box-shadow: 0 0 25px #ff80b3;
+    cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background: #ff0066;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before { top: -90px; left: 0; }
+.heart::after { left: 90px; top: 0; }
+
+@keyframes beat {
+    0%,100% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.3) rotate(-45deg); }
+}
+
+/* Mensajes cortos */
+.message-box {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+#msg {
+    font-size: 35px;
+    color: #ff99cc;
+    text-shadow: 0 0 15px #ff2b5f;
+    animation: fade 2s infinite;
+}
+
+@keyframes fade {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Botón */
+#startBtn {
+    position: absolute;
+    bottom: 25px;
+    padding: 12px 28px;
+    background: #ff0066;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4d94;
+    animation: zoom 1.5s infinite;
+}
+
+#startBtn:hover {
+    background: #ff3385;
+}
+
+@keyframes zoom {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Pétalos */
+.petalo {
+    position: fixed;
+    top: -20px;
+    font-size: 25px;
+    color: #ff80b3;
+    animation: caer 5s linear forwards;
+}
+
+@keyframes caer {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Mensaje Final ❤ */
+#finalMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    max-width: 900px;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    text-align: center;
+    display: none;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+#finalMessage h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
